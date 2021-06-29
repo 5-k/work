@@ -1,1 +1,18 @@
-fds
+{
+    "address_hco": {
+        "inp_bucket": "lly-edp-landing-us-east-2-dev",
+        "out_bucket": "lly-edp-landing-us-east-2-dev",
+        "inp_location": "enterprisecustomer/eph/analytic/hco/incoming_data/",
+        "stg_location": "enterprisecustomer/eph/analytic/hco/stg_data/hco_stg",
+        "out_location": "enterprisecustomer/eph/analytic/hco/processed_data/",
+        "address_single": "['AddressLine1','AddressLine2','AddressLine3','AddressLine4','AddressLine5','POBox','City','County','Country','StateProvince','CBSA','AttentionName','SAPNumber','Rank','DataValidationStatusCode','EffectiveStartDate','EffectiveEndDate','ActiveFlag','AddressID','AddressType','OriginalAddressLine1','OriginalAddressLine2','OriginalAddressLine3','OriginalAddressLine4','OriginalAddressLine5','OriginalCity','OriginalCounty','OriginalCountry','OriginalStateProvince','OriginalCBSACode','OriginalLatitude','OriginalLongitude','OriginalPOBox','SourceAddressId','ValidationReasonCode','Source','VerificationStatus','VerificationStatusDetails','SubAdministrativeArea','OriginalSubAdministrativeArea']",
+        "address_brick_nested": "['EffectiveEndDate','EffectiveStartDate','ID','Source','Type']",
+        "address_zip": "['PostalCode','Zip5','Zip4']",
+        "address_original_zip": "['Zip5','Zip4']",
+        "prcs_id": "100",
+        "job_id": "001",
+        "updated_by": "glue_user",
+        "audit_func": "edb_audit_log_s3",
+        "audit_log_dir": "pph_deiden/reltio_patient_outbound/audit_metadata/incoming_logs/"
+    }
+}
