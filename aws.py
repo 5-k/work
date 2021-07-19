@@ -142,25 +142,31 @@ def transformation(df_transform,val):
                 row_val.append(key.split('.')[-1])         
 
         row_val1=list(row_val)
-        row_val.extend(["EntityID","cross_source","cross_value"])
-        column_list=row_val
+        row_val1.extend(["crosswalks_value","entityid","cross_source"])
+        column_list=row_val1
+        print(column_list)
+        
         df_schema = create_schema(column_list)
 
         df_trans = spark.createDataFrame([], schema=df_schema)
-    
-        cols = [func.when(func.col("joined_column") == m, \
-                            func.col("value")).otherwise(None).alias(m)
-                for m in row_val1]
-        maxs = [func.max(func.col(m)).alias(m) for m in row_val1]
-
-        df_transform = (df_transform
-                    .select(func.col("cross_source"), func.col("cross_value"),func.col("EntityID"), \
-                              *cols)\
-                    .groupBy("cross_source",   "cross_value","EntityID")\
-                    .agg(*maxs)
+        #df_transform.show(100, False)
+        cols = [func.when(func.lower(func.trim(func.col("joined_column"))) == m.strip().lower(),  func.col("value")).otherwise('not found').alias(m)\
+                for m in row_val]
+        print(cols)
+        maxs = [func.max(func.col(m)).alias(m) for m in row_val]
+        print(maxs)
+        print('now transforming')
+        
+        df_transform1 = (df_transform\
+                    .select( func.col("cross_source"), func.col("crosswalks_value"),func.col("entityid"), *cols)\
+                    .groupBy("crosswalks_value",   "entityid","cross_source")\
+                    .agg(*maxs)\
+                
                     .na.fill(0))
-        df_trans = df_trans.unionByName(df_transform)
+        print('now union')
+        df_trans = df_trans.unionByName(df_transform1)
    
+        print('now return')
         return df_trans
 
 
@@ -288,8 +294,8 @@ def  df_address_flatenned(df_cross, df_input, value):
                     df_nest_flattend = df_address_joinedData_new.select(func.col("crosswalks_value"),func.col("entityid"),func.col("cross_source"),*selectcols) \
                                         .withColumnRenamed(selectcols[0], "value") 
                     #print("line 273")                    
-                    df_nest_flattend = df_nest_flattend.withColumn('joined_column',   func.concat(func.lit(key), func.lit(valueToFind.title())))   
-                    
+                    #df_nest_flattend = df_nest_flattend.withColumn('joined_column',   func.concat(func.lit(key), func.lit(valueToFind.title())))   
+                    df_nest_flattend = df_nest_flattend.withColumn('joined_column',   func.lit(key))   
                     def_nes = def_nes.unionAll(df_nest_flattend)
         #df_states = df_states.withColumn('states_Name', trim(df_states.state_name))
         
@@ -302,40 +308,7 @@ def  df_address_flatenned(df_cross, df_input, value):
     except Exception as excep_msg:
         raise excep_msg
          
-def df_nested_flattened(df_input,value):
-    """
-      Description: Attribute level flattening for the nested attributes
-      Input: df_input dataframe
-      Output: df_nes dataframe contains uri, value and joined column name
-    """
-    try:
-        df_schema = StructType([
-            StructField("uri", StringType(), True), \
-            StructField("value", StringType(), True), \
-            StructField("joined_column", StringType(), True),
-            StructField("EntityID", StringType(), True)
-        ])
-
-        def_nes = sqlContext.createDataFrame(sc.emptyRDD(), schema=df_schema)
-        for dict in value:       
-            for key in dict:
-                valueToFind = dict[key]              
-                fullcolumnName = key + "." + valueToFind 
-                if has_column(df_input, fullcolumnName): 
-                    df_nest_flattend = flatten(df_input.select(key), [])
-                    key = key.split('.')[-1]
-                    selectcols = [key + '_uri', key + "_" + valueToFind]
-                    df_nest_flattend = df_nest_flattend.select(*selectcols) \
-                        .withColumnRenamed(selectcols[0], "uri") \
-                        .withColumnRenamed(selectcols[1], "value") 
-                    df_nest_flattend = df_nest_flattend.withColumn('joined_column',   func.concat(func.split(df_nest_flattend.uri, '/')[5] , func.lit(valueToFind)))   
-                    df_nest_flattend = df_nest_flattend.withColumn('EntityID', \
-                                                                    func.split(df_nest_flattend.uri, '/')[1])
-                    def_nes = def_nes.unionAll(df_nest_flattend)
-        return def_nes
-    except Exception as excep_msg:
-        raise excep_msg
-
+ 
 def df_attribute_flattened(df_input):
     """
     Description: Attribute level flattening for the single attributes
@@ -390,25 +363,17 @@ def main():
     """
     
     
-    print(sys.argv)
-    if len(sys.argv) <= 1 :
-        ex_msg = 'Missing Config File Path'
-        print(ex_msg)
-        raise ex_msg
-
-    isS3Run = True
-    if( len(sys.argv) == 3  and sys.argv[2] == 'l'):
-        isS3Run = False
-
-    load_config(sys.argv[1], isS3Run)
-
+    isS3Run = False
+   
+    
+    load_config('config.json', isS3Run)
+    
     if isS3Run:
         df_input = spark.read.option("multiline","true").json(config['s3fileInputPath'])
     else:
         df_input = spark.read.option("multiline","true").json(config['localfileInputPath'])
         createDeletFolder(config['outerFolderPrefix'],'delete')
         createDeletFolder(config['outerFolderPrefix'],'create')
-
     #print(current_timestamp())
     print(df_input.count())
         
