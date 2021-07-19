@@ -56,7 +56,6 @@
                         {"attributes.address.value.EffectiveEndDate": "value"},
                         {"attributes.address.value.ActiveFlag": "value"},
                         {"attributes.address.value.AddressID": "value"},
-                        {"attributes.address.value.Country": "value"},
                         {"attributes.address.value.AddressType": "value"},
                         {"attributes.address.value.OriginalAddressLine1": "value"},
                         {"attributes.address.value.OriginalAddressLine2": "value"},
@@ -79,8 +78,7 @@
                         {"attributes.address.value.SubAdministrativeArea": "value"},
                         {"attributes.address.value.OriginalSubAdministrativeArea": "value"},
                         {"attributes.address.value.ID": "value"},
-                        {"attributes.address.value.Type": "value"},
-                        
+                        {"attributes.address.value.Type": "value"},                        
                         {"attributes.address.value.OriginalZip.value.Zip5": "value"},
                         {"attributes.address.value.OriginalZip.value.Zip4": "value"},
                         {"attributes.address.value.Zip.value.Zip4": "value"},
