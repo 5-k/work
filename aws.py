@@ -139,7 +139,15 @@ def transformation(df_transform,val):
 
         for dict in val:       
             for key in dict:
-                row_val.append(key.split('.')[-1])         
+                splits = key.split('.')
+                if(len(splits) == 3):
+                        keyVal = splits[-1]
+                elif len(splits) == 5:
+                    keyVal = splits[2] + "_" + splits[4]
+                else:
+                    raise('Oh Shit')
+
+                row_val.append(keyVal)         
 
         row_val1=list(row_val)
         row_val1.extend(["crosswalks_value","entityid","cross_source"])
@@ -168,8 +176,8 @@ def transformation(df_transform,val):
         df_trans = df_trans.unionByName(df_transform1) 
 
         print('now show2 df_trans')
-        #df_trans.show(100, False)
-        print('now return df_trans')
+        df_trans.show(100, False)
+        print('now return')
         return df_trans
 
 
@@ -288,7 +296,15 @@ def  df_address_flatenned(df_cross, df_input, value):
                         print(fullcolumnName)
                         df_address_joinedData_new = df_address_joinedData
 
-                    key = key.split('_')[-1]
+                    splits = key.split('_')
+                    if(len(splits) == 3):
+                        key = splits[-1]
+                    elif len(splits) == 5:
+                        key = splits[2] + "_" + splits[4]
+                    else:
+                        raise('Unknown Count of _')
+
+                    #key = key.split('_')[-1]
                     selectcols = [fullcolumnName]
                     #print("Below are the seleccols")
                     #print(selectcols)
