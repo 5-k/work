@@ -43,7 +43,21 @@
                         {"attributes.Address.value.AddressLine3": "value"},
                         {"attributes.Address.value.AddressLine4": "value"},
                         {"attributes.Address.value.AddressLine5": "value"},
-                      
+                        {"attributes.Address.value.City": "value"},
+                        {"attributes.Address.value.POBox": "value"},
+                        {"attributes.Address.value.Country": "value"},
+                        {"attributes.Address.value.StateProvince": "value"},
+                        {"attributes.address.value.CBSA": "value"},
+                        {"attributes.address.value.AttentionName": "value"},
+                        {"attributes.address.value.SAPNumber": "value"},
+                        {"attributes.address.value.Rank": "value"},
+                        {"attributes.address.value.DataValidationStatusCode": "value"},
+                        {"attributes.address.value.EffectiveStartDate": "value"},
+                        {"attributes.address.value.EffectiveEndDate": "value"},
+                        {"attributes.address.value.ActiveFlag": "value"},
+                        {"attributes.address.value.AddressID": "value"},
+                        {"attributes.address.value.Country": "value"},
+                        {"attributes.address.value.AddressType": "value"},
                         {"attributes.address.value.OriginalAddressLine1": "value"},
                         {"attributes.address.value.OriginalAddressLine2": "value"},
                         {"attributes.address.value.OriginalAddressLine3": "value"},
@@ -66,21 +80,12 @@
                         {"attributes.address.value.OriginalSubAdministrativeArea": "value"},
                         {"attributes.address.value.ID": "value"},
                         {"attributes.address.value.Type": "value"},
-
-                        {"attributes.Address.value.City": "value"},
-                        {"attributes.Address.value.POBox": "value"}, 
-                        {"attributes.Address.value.StateProvince": "value"},
-                        {"attributes.address.value.CBSA": "value"},
-                        {"attributes.address.value.AttentionName": "value"},
-                        {"attributes.address.value.SAPNumber": "value"},
-                        {"attributes.address.value.Rank": "value"},
-                        {"attributes.address.value.DataValidationStatusCode": "value"},
-                        {"attributes.address.value.EffectiveStartDate": "value"},
-                        {"attributes.address.value.EffectiveEndDate": "value"},
-                        {"attributes.address.value.ActiveFlag": "value"},
-                        {"attributes.address.value.AddressID": "value"},
-                        {"attributes.address.value.Country": "value"},
-                        {"attributes.address.value.AddressType": "value"}
+                        
+                        {"attributes.address.value.OriginalZip.value.Zip5": "value"},
+                        {"attributes.address.value.OriginalZip.value.Zip4": "value"},
+                        {"attributes.address.value.Zip.value.Zip4": "value"},
+                        {"attributes.address.value.Zip.value.Zip5": "value"},
+                        {"attributes.address.value.Zip.value.PostalCode": "value"}
                          
                 ]
                            
