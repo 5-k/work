@@ -150,7 +150,7 @@ def transformation(df_transform,val):
 
         df_trans = spark.createDataFrame([], schema=df_schema)
         #df_transform.show(100, False)
-        cols = [func.when(func.lower(func.trim(func.col("joined_column"))) == m.strip().lower(),  func.col("value")).otherwise('not found').alias(m)\
+        cols = [func.when(func.lower(func.trim(func.col("joined_column"))) == m.strip().lower(),  func.col("value")).otherwise(None).alias(m)\
                 for m in row_val]
         print(cols)
         maxs = [func.max(func.col(m)).alias(m) for m in row_val]
@@ -162,11 +162,14 @@ def transformation(df_transform,val):
                     .groupBy("crosswalks_value",   "entityid","cross_source")\
                     .agg(*maxs)\
                 
-                    .na.fill(0))
+                    .na.fill(0)) 
+
         print('now union')
-        df_trans = df_trans.unionByName(df_transform1)
-   
-        print('now return')
+        df_trans = df_trans.unionByName(df_transform1) 
+
+        print('now show2 df_trans')
+        #df_trans.show(100, False)
+        print('now return df_trans')
         return df_trans
 
 
