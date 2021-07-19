@@ -1,7 +1,7 @@
 
 
 {
-        "localfileInputPath": "file:///C:/R/personal_projects/python/bigfile.json",
+        "localfileInputPath": "file:///C:/R/personal_projects/python/hco/input123.json",
         "s3fileInputPath": "s3://lly-edp-landing-us-east-2-dev/enterprisecustomer/eph/analytic/hco/incoming_data/HCO_10k.json",
         "outputFolderPath": "s3://lly-edp-landing-us-east-2-dev/enterprisecustomer/eph/analytic/hco/processed_data/",
         "outerFolderPrefix": "hco",
@@ -43,21 +43,7 @@
                         {"attributes.Address.value.AddressLine3": "value"},
                         {"attributes.Address.value.AddressLine4": "value"},
                         {"attributes.Address.value.AddressLine5": "value"},
-                        {"attributes.Address.value.City": "value"},
-                        {"attributes.Address.value.POBox": "value"},
-                        {"attributes.Address.value.Country": "value"},
-                        {"attributes.Address.value.StateProvince": "value"},
-                        {"attributes.address.value.CBSA": "value"},
-                        {"attributes.address.value.AttentionName": "value"},
-                        {"attributes.address.value.SAPNumber": "value"},
-                        {"attributes.address.value.Rank": "value"},
-                        {"attributes.address.value.DataValidationStatusCode": "value"},
-                        {"attributes.address.value.EffectiveStartDate": "value"},
-                        {"attributes.address.value.EffectiveEndDate": "value"},
-                        {"attributes.address.value.ActiveFlag": "value"},
-                        {"attributes.address.value.AddressID": "value"},
-                        {"attributes.address.value.Country": "value"},
-                        {"attributes.address.value.AddressType": "value"},
+                      
                         {"attributes.address.value.OriginalAddressLine1": "value"},
                         {"attributes.address.value.OriginalAddressLine2": "value"},
                         {"attributes.address.value.OriginalAddressLine3": "value"},
@@ -78,93 +64,25 @@
                         {"attributes.address.value.VerificationStatusDetails": "value"},
                         {"attributes.address.value.SubAdministrativeArea": "value"},
                         {"attributes.address.value.OriginalSubAdministrativeArea": "value"},
-                        {"attributes.address.value.EffectiveEndDate": "value"},
-                        {"attributes.address.value.EffectiveStartDate": "value"},
                         {"attributes.address.value.ID": "value"},
                         {"attributes.address.value.Type": "value"},
-                        {"attributes.address.value.OriginalZip.value.Zip5": "value"},
-                        {"attributes.address.value.OriginalZip.value.Zip4": "value"},
-                        {"attributes.address.value.Zip_value.Zip4": "value"},
-                        {"attributes.address.value.Zip.value.Zip5": "value"},
-                        {"attributes.address.value.Zip.value.PostalCode": "value"}
+
+                        {"attributes.Address.value.City": "value"},
+                        {"attributes.Address.value.POBox": "value"}, 
+                        {"attributes.Address.value.StateProvince": "value"},
+                        {"attributes.address.value.CBSA": "value"},
+                        {"attributes.address.value.AttentionName": "value"},
+                        {"attributes.address.value.SAPNumber": "value"},
+                        {"attributes.address.value.Rank": "value"},
+                        {"attributes.address.value.DataValidationStatusCode": "value"},
+                        {"attributes.address.value.EffectiveStartDate": "value"},
+                        {"attributes.address.value.EffectiveEndDate": "value"},
+                        {"attributes.address.value.ActiveFlag": "value"},
+                        {"attributes.address.value.AddressID": "value"},
+                        {"attributes.address.value.Country": "value"},
+                        {"attributes.address.value.AddressType": "value"}
                          
-                ],
-                "HCPtoHCO_nestedattribute_AffiliationClassification": [
-                        {"attributes.AffiliationClassification.value.Hierarchy" : "value"   },
-                        {"attributes.AffiliationClassification.value.Source": "value"},
-                        {"attributes.AffiliationClassification.value.RelationshipTypeCode": "lookupCode"}, 
-                        {"attributes.AffiliationClassification.value.RelationshipTypeCode" : "lookupRawvalue"}, 
-                        {"attributes.AffiliationClassification.value.ActiveFlag" : "value"}, 
-                        {"attributes.AffiliationClassification.value.DataValidationStatusCode": "lookupCode"}, 
-                        {"attributes.AffiliationClassification.value.DataValidationStatusCode" : "lookupRawvalue"}, 
-                        {"attributes.AffiliationClassification.value.EffectiveStartDate":"value"}, 
-                        {"attributes.AffiliationClassification.value.EffectiveEndDate":"value"},
-                        {"attributes.AffiliationClassification.value.Rank":"value"},
-                        {"attributes.AffiliationClassification.value.SkipID":"value"},
-                        {"attributes.AffiliationClassification.value.ParentTypeCode":"lookupCode"},
-                        {"attributes.AffiliationClassification.value.EffectiveEndDate":"value"},
-                        {"attributes.AffiliationClassification.value.ParentTypeCode":"lookupRawvalue"},
-                        {"attributes.AffiliationClassification.value.ValidationReasonCode":"lookupCode"},
-                        {"attributes.AffiliationClassification.value.ParentTypeCode":"lookupRawvalue"},
-                        {"attributes.AffiliationClassification.value.ValidationReasonCode":"lookupRawvalue"},
-                        {"attributes.AffiliationClassification.value.AffiliationSource":"value"} 
-                ],
-                "HCPtoHCO_nestedattribute_email":[
-                        {"attributes.Email.EffectiveEndDate": "value"},
-                        {"attributes.Email.EffectiveStartDate": "value"},
-                        {"attributes.Email.DataValidationStatusCode": "lookupCode"},
-                        {"attributes.Email.DataValidationStatusCode": "lookupRawvalue"},
-                        {"attributes.Email.Email": "value"},
-                        {"attributes.Email.Rank": "value"},
-                        {"attributes.Email.Type": "value"},
-                        {"attributes.Email.ValidationReasonCode": "lookupCode"},
-                        {"attributes.Email.ValidationReasonCode": "lookupRawvalue"},
-                        {"attributes.Email.Source": "value"}
-                ],
-                                
-                "HCPtoHCO_nestedattribute_phone":[
-                        {"attributes.Phone.ActiveFlag": "value"},
-                        {"attributes.Phone.CountryCode": "lookupCode"},
-                        {"attributes.Phone.CountryCode": "lookupRawvalue"},
-                        {"attributes.Phone.EffectiveEndDate": "value"},
-                        {"attributes.Phone.EffectiveStartDate": "value"},
-                        {"attributes.Phone.DataValidationStatusCode": "lookupCode"},
-                        {"attributes.Phone.DataValidationStatusCode": "lookupRawvalue"},
-                        {"attributes.Phone.Extension": "value"},
-                        {"attributes.Phone.Number": "value"},
-                        {"attributes.Phone.Rank": "value"},
-                        {"attributes.Phone.Type": "value"},
-                        {"attributes.Phone.ValidationReasonCode": "lookupCode"},
-                        {"attributes.Phone.ValidationReasonCode": "lookupRawvalue"},
-                        {"attributes.Phone.Source": "value"}
-                ],
-                                
-                "HCPtoHCO_nestedattribute_Role":[
-                        {"attributes.Role.RoleTypeCode": "lookupCode"},
-                        {"attributes.Role.RoleTypeCode": "lookupRawvalue"},
-                        {"attributes.Role.Hierarchy": "value"},
-                        {"attributes.Role.RelationshipTypeCode": "lookupCode"},
-                        {"attributes.Role.RelationshipTypeCode": "lookupRawvalue"},
-                        {"attributes.Role.DataValidationStatusCode": "lookupCode"},
-                        {"attributes.Role.DataValidationStatusCode": "lookupRawvalue"},
-                        {"attributes.Role.EffectiveEndDate": "value"},
-                        {"attributes.Role.EffectiveStartDate": "value"},
-                        {"attributes.Role.Rank": "value"},
-                        {"attributes.Role.ValidationReasonCode": "lookupCode"},
-                        {"attributes.Role.ValidationReasonCode": "lookupRawvalue"},
-                        {"attributes.Role.Source": "value"}
-                ], 
-                "Identifiers":[
-                        {"attributes.Identifiers.value.Type": "value"},
-                        {"attributes.Identifiers.value.ID": "value"},
-                        {"attributes.Identifiers.value.EffectiveEndDate": "value"},
-                        {"attributes.Identifiers.value.EffectiveStartDate": "value"},
-                        {"attributes.Identifiers.value.DeactivationDate": "value"},
-                        {"attributes.Identifiers.value.Status": "value"},
-                        {"attributes.Identifiers.value.SubType": "value"},
-                        {"attributes.Identifiers.value.DataValidationStatusCode": "value"}
                 ]
-                
                            
         }
               
